@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>联系我们 - AI宣传广告</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #0066cc;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d9e6f2;
+            border-radius: 12px;
+            font-size: 16px;
+            background-color: rgba(250, 252, 255, 0.8);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #007aff;
+            box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+        }
+        
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #007aff, #0066cc);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            font-weight: 500;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 10px rgba(0, 102, 204, 0.3);
+        }
+        
+        button:hover {
+            background: linear-gradient(135deg, #0066cc, #005bb5);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4);
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .success-message {
+            background: linear-gradient(135deg, #e8f7ef, #d4f4e2);
+            color: #00994d;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: none;
+            border: 1px solid #b3e6cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>联系我们</h1>
+        </header>
+        
+        <div class="form-container">
+            <div class="success-message" id="successMessage">
+                <p>您的信息已成功提交！我们将尽快与您联系。</p>
+            </div>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">您的姓名</label>
+                    <input type="text" id="name" name="name" required placeholder="请输入您的姓名">
+                </div>
+                
+                <div class="form-group">
+                    <label for="company">公司/单位名称</label>
+                    <input type="text" id="company" name="company" placeholder="请输入公司或单位名称">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">联系电话</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="请输入联系电话">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">电子邮箱</label>
+                    <input type="email" id="email" name="email" placeholder="请输入电子邮箱">
+                </div>
+                
+                <div class="form-group">
+                    <label for="serviceType">需求类型</label>
+                    <select id="serviceType" name="serviceType">
+                        <option value="">请选择需求类型...</option>
+                        <option value="公司企业形象宣传片">公司企业形象宣传片</option>
+                        <option value="产品宣传片">产品宣传片</option>
+                        <option value="地区特产特色文化宣传片">地区特产特色文化宣传片</option>
+                        <option value="单位形象宣传片">单位形象宣传片</option>
+                        <option value="年会节气氛围片">年会节气氛围片</option>
+                        <option value="其他">其他</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">详细需求</label>
+                    <textarea id="message" name="message" placeholder="请描述您的具体需求..."></textarea>
+                </div>
+                
+                <button type="submit">提交需求</button>
+            </form>
+            
+            <a href="index.html" class="back-link">返回主页</a>
+        </div>
+        
+        <footer>
+            <p>联系我们：</p>
+            <p class="contact-info">电话：请添加您的联系电话</p>
+            <p class="contact-info">邮箱：请添加您的联系邮箱</p>
+        </footer>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // 这里可以添加表单数据处理和提交的代码
+                // 如需后端处理，可以使用AJAX提交到服务器
+                
+                // 模拟表单提交成功
+                successMessage.style.display = 'block';
+                contactForm.reset();
+                
+                // 5秒后隐藏成功消息
+                setTimeout(function() {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            });
+        });
+    </script>
+</body>
+</html> 

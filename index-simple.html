@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AI宣传广告项目书</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 15px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 25px 0;
+            background: linear-gradient(135deg, #e6f5ff, #c2e6ff);
+            color: #0066cc;
+            border-radius: 16px 16px 0 0;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 20px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e0e0e0;
+            color: #0066cc;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin: 15px 0 10px;
+            color: #0066cc;
+            font-weight: 500;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            margin: 10px 0;
+            color: #0077e6;
+            font-weight: 500;
+        }
+
+        nav {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            flex: 1;
+            text-align: center;
+            min-width: 80px;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 14px 5px;
+            text-decoration: none;
+            color: #0066cc;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover, nav ul li a:active {
+            background-color: rgba(0, 102, 204, 0.1);
+        }
+
+        section {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 16px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .business-category {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 12px;
+            background-color: #f5f9ff;
+            border: 1px solid #e6f0ff;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .advantage-intro {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #e6f5ff, #d4ebff);
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .advantage-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 12px;
+            background-color: #f5f9ff;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e6f0ff;
+        }
+
+        .comparison {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .comparison-item {
+            padding: 15px;
+            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e6f0ff;
+        }
+
+        .video-container {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #f0f7ff, #e6f0ff);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            color: #0066cc;
+            border: 1px dashed #b3d7ff;
+        }
+
+        .more-cases {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .contact-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #007aff, #0066cc);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 500;
+            box-shadow: 0 2px 10px rgba(0, 102, 204, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .contact-button:hover, .contact-button:active {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 20px;
+            background: linear-gradient(135deg, #0077e6, #0066cc);
+            color: white;
+            border-radius: 0 0 16px 16px;
+        }
+
+        .contact-info {
+            margin: 5px 0;
+            opacity: 0.9;
+        }
+
+        .footer-actions {
+            margin-top: 20px;
+        }
+
+        .footer-button {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #0066cc;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-button:hover, .footer-button:active {
+            background-color: white;
+            transform: translateY(-2px);
+        }
+
+        /* 响应式调整 */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+
+            .comparison {
+                flex-direction: row;
+            }
+
+            .comparison-item {
+                flex: 1;
+            }
+        }
+
+        /* 动画效果 */
+        .business-category, .advantage-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .business-category:hover, .advantage-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+        }
+
+        /* 视频样式 */
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* 联系表单样式 */
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: none;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #0066cc;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d9e6f2;
+            border-radius: 12px;
+            font-size: 16px;
+            background-color: rgba(250, 252, 255, 0.8);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #007aff;
+            box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+        }
+        
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #007aff, #0066cc);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            font-weight: 500;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 10px rgba(0, 102, 204, 0.3);
+        }
+        
+        button:hover {
+            background: linear-gradient(135deg, #0066cc, #005bb5);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4);
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .success-message {
+            background: linear-gradient(135deg, #e8f7ef, #d4f4e2);
+            color: #00994d;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: none;
+            border: 1px solid #b3e6cc;
+        }
+
+        /* 视频网格样式 */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+        
+        .video-item {
+            margin-bottom: 15px;
+            border-radius: 12px;
+            background-color: #f5f9ff;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e6f0ff;
+        }
+        
+        .video-title {
+            margin-bottom: 10px;
+            color: #0066cc;
+        }
+        
+        .video-description {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* 微信环境特定样式 */
+        .wechat-env {
+            padding-bottom: 30px;
+        }
+        
+        .wechat-env video {
+            max-height: 230px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI宣传广告项目书</h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#business">业务方向</a></li>
+                <li><a href="#advantages">我们的优势</a></li>
+                <li><a href="#cases">优秀案例展示</a></li>
+                <li><a href="#contact" id="contactLink">联系我们</a></li>
+            </ul>
+        </nav>
+
+        <section id="business">
+            <h2>业务方向</h2>
+            
+            <div class="business-category">
+                <h3>文旅局</h3>
+                <ul>
+                    <li>地区特产特色文化宣传片</li>
+                    <li>单位形象宣传片</li>
+                    <li>年会节气氛围片</li>
+                </ul>
+            </div>
+
+            <div class="business-category">
+                <h3>私营企业</h3>
+                <ul>
+                    <li>公司企业形象宣传片</li>
+                    <li>产品宣传片（包含功能性，外观，理念等）</li>
+                    <li>年会节气氛围片</li>
+                </ul>
+            </div>
+
+            <div class="business-category">
+                <h3>市政规划项目</h3>
+                <ul>
+                    <li>大型公共建筑类宣传（体育场，天府广场（举例），道路桥梁等等）</li>
+                    <li>市政形象宣传片</li>
+                </ul>
+            </div>
+
+            <div class="business-category">
+                <h3>建筑行业</h3>
+                <ul>
+                    <li>商业建筑宣传片</li>
+                    <li>社区公益宣传片</li>
+                    <li>成都各个片区的社区公益宣传片</li>
+                </ul>
+            </div>
+
+            <div class="business-category">
+                <h3>国营性质企事业单位</h3>
+                <ul>
+                    <li>天然气公司</li>
+                    <li>电力公司</li>
+                    <li>水利公司</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="advantages">
+            <h2>我们的优势</h2>
+            <div class="advantage-intro">
+                <p>更快，更方便，更简单，更便宜，无任何风格限制</p>
+            </div>
+
+            <div class="advantage-item">
+                <h3>1. 高效制作流程</h3>
+                <div class="comparison">
+                    <div class="comparison-item">
+                        <h4>传统：</h4>
+                        <p>一个1分钟的传统3D动画制作，动则需要1-3个月制作周期，并且需要甲方提供大量的相关内容参考数据，制作成本动则6-12万一条</p>
+                    </div>
+                    <div class="comparison-item">
+                        <h4>AI动画：</h4>
+                        <p>同样1分钟的动画，制作周期可以缩短到15天内完成成片制作，无需甲方提供大量素材，参数参考，只需要给一些相关图片内容参考即可，省去3D建模，灯光材质渲染等繁杂工序流程，价格1分钟内报价3万/条，量大还可商议</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="advantage-item">
+                <h3>2. 无任何风格限制</h3>
+                <p>无论您是想要真实实景展示，还是3D动画，皮克斯类型，水墨，艺术等风格，您能想到的任何画面风格我们都能制作，不需要真人进行实景拍摄，价格不会因为视频类型转变而改变</p>
+            </div>
+
+            <div class="advantage-item">
+                <h3>3. 强大的制作团队</h3>
+                <p>制作团队庞大，AI绘图制作团队人数超300人以上，如今市面上能承接大型大量的这种AI视频团队屈指可数，而我们是其中一只新兴专业力量，我们是源头AI视频生产团队，除去您中间商环节一步到位</p>
+            </div>
+
+            <div class="advantage-item">
+                <h3>4. 丰富的合作经验</h3>
+                <p>跟全国各大企事业单位进行过许多项目合作 比如：泸州老窖 长城雪茄 大窑汽水 阿里巴巴 杭州市文旅局 成都市文旅局 以及各种规模的私企 都进行过合作 深知各行业的视频内容需求沟通更简单方便</p>
+            </div>
+        </section>
+
+        <section id="cases">
+            <h2>优秀案例展示</h2>
+            <div class="video-container">
+                <!-- 视频将在这里添加 -->
+                <div class="video-placeholder">
+                    <p>视频案例将在这里展示</p>
+                    <p>（请联系我们获取更多案例）</p>
+                </div>
+            </div>
+            <div class="more-cases">
+                <a href="#contact" class="contact-button" id="showContactButton">联系我们获取更多案例</a>
+            </div>
+        </section>
+
+        <section id="contact" class="form-container">
+            <h2>联系我们</h2>
+            <div class="success-message" id="successMessage">
+                <p>您的信息已成功提交！我们将尽快与您联系。</p>
+            </div>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">您的姓名</label>
+                    <input type="text" id="name" name="name" required placeholder="请输入您的姓名">
+                </div>
+                
+                <div class="form-group">
+                    <label for="company">公司/单位名称</label>
+                    <input type="text" id="company" name="company" placeholder="请输入公司或单位名称">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">联系电话</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="请输入联系电话">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">电子邮箱</label>
+                    <input type="email" id="email" name="email" placeholder="请输入电子邮箱">
+                </div>
+                
+                <div class="form-group">
+                    <label for="serviceType">需求类型</label>
+                    <select id="serviceType" name="serviceType">
+                        <option value="">请选择需求类型...</option>
+                        <option value="公司企业形象宣传片">公司企业形象宣传片</option>
+                        <option value="产品宣传片">产品宣传片</option>
+                        <option value="地区特产特色文化宣传片">地区特产特色文化宣传片</option>
+                        <option value="单位形象宣传片">单位形象宣传片</option>
+                        <option value="年会节气氛围片">年会节气氛围片</option>
+                        <option value="其他">其他</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">详细需求</label>
+                    <textarea id="message" name="message" placeholder="请描述您的具体需求..."></textarea>
+                </div>
+                
+                <button type="submit">提交需求</button>
+            </form>
+            
+            <a href="#" class="back-link" id="hideContactButton">返回主页</a>
+        </section>
+
+        <footer>
+            <p>联系我们：</p>
+            <p class="contact-info">电话：<span id="contactPhone">请添加您的联系电话</span></p>
+            <p class="contact-info">邮箱：<span id="contactEmail">请添加您的联系邮箱</span></p>
+            <div class="footer-actions">
+                <a href="#contact" class="footer-button" id="footerContactButton">立即咨询</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 平滑滚动效果
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetId === '#contact') {
+                        showContactForm();
+                    } else {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // 添加视频函数
+            window.addVideo = function(videoUrl, videoType) {
+                const videoContainer = document.querySelector('.video-container');
+                const placeholder = document.querySelector('.video-placeholder');
+                
+                if (placeholder) {
+                    placeholder.remove();
+                }
+                
+                const videoElement = document.createElement('video');
+                videoElement.controls = true;
+                videoElement.autoplay = false;
+                videoElement.playsInline = true;
+                
+                const sourceElement = document.createElement('source');
+                sourceElement.src = videoUrl;
+                sourceElement.type = videoType || 'video/mp4';
+                
+                videoElement.appendChild(sourceElement);
+                videoElement.innerHTML += '您的浏览器不支持视频播放';
+                
+                videoContainer.appendChild(videoElement);
+            };
+
+            // 添加多个视频的函数
+            window.addMultipleVideos = function(videoArray) {
+                const videoContainer = document.querySelector('.video-container');
+                const placeholder = document.querySelector('.video-placeholder');
+                
+                if (placeholder) {
+                    placeholder.remove();
+                }
+                
+                // 清空现有内容
+                videoContainer.innerHTML = '';
+                
+                // 创建视频网格容器
+                const gridContainer = document.createElement('div');
+                gridContainer.className = 'video-grid';
+                videoContainer.appendChild(gridContainer);
+                
+                // 添加每个视频
+                videoArray.forEach(video => {
+                    const videoWrapper = document.createElement('div');
+                    videoWrapper.className = 'video-item';
+                    
+                    // 添加标题（如果有）
+                    if (video.title) {
+                        const title = document.createElement('h4');
+                        title.className = 'video-title';
+                        title.textContent = video.title;
+                        videoWrapper.appendChild(title);
+                    }
+                    
+                    // 创建视频元素
+                    const videoElement = document.createElement('video');
+                    videoElement.controls = true;
+                    videoElement.autoplay = false;
+                    videoElement.playsInline = true;
+                    
+                    const sourceElement = document.createElement('source');
+                    sourceElement.src = video.url;
+                    sourceElement.type = video.type || 'video/mp4';
+                    
+                    videoElement.appendChild(sourceElement);
+                    videoElement.innerHTML += '您的浏览器不支持视频播放';
+                    
+                    videoWrapper.appendChild(videoElement);
+                    
+                    // 添加描述（如果有）
+                    if (video.description) {
+                        const description = document.createElement('p');
+                        description.className = 'video-description';
+                        description.textContent = video.description;
+                        videoWrapper.appendChild(description);
+                    }
+                    
+                    gridContainer.appendChild(videoWrapper);
+                });
+            };
+
+            // 添加渐入动画效果
+            const sections = document.querySelectorAll('section:not(.form-container)');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            sections.forEach(section => {
+                section.style.opacity = 0;
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(section);
+            });
+
+            // 检测微信环境
+            function isWechat() {
+                return /MicroMessenger/i.test(navigator.userAgent);
+            }
+
+            // 微信环境特定优化
+            if (isWechat()) {
+                document.body.classList.add('wechat-env');
+            }
+
+            // 联系表单相关功能
+            const contactForm = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+            const formContainer = document.querySelector('.form-container');
+            
+            function showContactForm() {
+                sections.forEach(section => {
+                    if (section !== formContainer) {
+                        section.style.display = 'none';
+                    }
+                });
+                formContainer.style.display = 'block';
+                formContainer.style.opacity = 1;
+                formContainer.style.transform = 'translateY(0)';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            
+            function hideContactForm() {
+                formContainer.style.display = 'none';
+                sections.forEach(section => {
+                    if (section !== formContainer) {
+                        section.style.display = 'block';
+                    }
+                });
+            }
+            
+            document.getElementById('contactLink').addEventListener('click', function(e) {
+                e.preventDefault();
+                showContactForm();
+            });
+            
+            document.getElementById('showContactButton').addEventListener('click', function(e) {
+                e.preventDefault();
+                showContactForm();
+            });
+            
+            document.getElementById('footerContactButton').addEventListener('click', function(e) {
+                e.preventDefault();
+                showContactForm();
+            });
+            
+            document.getElementById('hideContactButton').addEventListener('click', function(e) {
+                e.preventDefault();
+                hideContactForm();
+            });
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // 模拟表单提交成功
+                successMessage.style.display = 'block';
+                contactForm.reset();
+                
+                // 5秒后隐藏成功消息
+                setTimeout(function() {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            });
+        });
+    </script>
+</body>
+</html> 
