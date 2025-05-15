@@ -17,7 +17,7 @@
                 <li><a href="#business" class="active">业务方向</a></li>
                 <li><a href="#advantages">我们的优势</a></li>
                 <li><a href="#cases">优秀案例展示</a></li>
-                <li><a href="contact.html">联系我们</a></li>
+
             </ul>
         </nav>
 
@@ -158,79 +158,15 @@
                     </div>
                 </div>
             </div>
-            <div class="more-cases">
-                <a href="#" class="contact-button" id="showContactButton">联系我们获取更多案例</a>
-            </div>
         </section>
 
         <footer>
-            <p>联系我们：</p>
-            <p class="contact-info">电话：<span id="contactPhone">请添加您的联系电话</span></p>
-            <p class="contact-info">邮箱：<span id="contactEmail">请添加您的联系邮箱</span></p>
-            <div class="footer-actions">
-                <a href="contact.html" class="footer-button">立即咨询</a>
-            </div>
+            <p>© 2023 AI宣传广告项目</p>
         </footer>
     </div>
 
     <script src="script.js"></script>
     <script>
-        // 添加联系按钮点击事件
-        document.getElementById('showContactButton').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.location.href = 'contact.html';
-        });
-        
-        // 导航菜单激活状态管理
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('nav ul li a');
-            
-            function setActiveLink() {
-                let scrollPosition = window.scrollY;
-                
-                // 添加一点偏移量，让切换更自然
-                scrollPosition += 100;
-                
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.offsetHeight;
-                    const sectionId = section.getAttribute('id');
-                    
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === '#' + sectionId) {
-                                link.classList.add('active');
-                            }
-                        });
-                    }
-                });
-            }
-            
-            // 页面加载和滚动时检查
-            window.addEventListener('scroll', setActiveLink);
-            setActiveLink();
-            
-            // 平滑滚动到锚点
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    if (this.getAttribute('href').startsWith('#')) {
-                        e.preventDefault();
-                        const targetId = this.getAttribute('href');
-                        const targetSection = document.querySelector(targetId);
-                        
-                        if (targetSection) {
-                            window.scrollTo({
-                                top: targetSection.offsetTop - 20,
-                                behavior: 'smooth'
-                            });
-                        }
-                    }
-                });
-            });
-        });
-
         // 视频延迟加载
         document.addEventListener('DOMContentLoaded', function() {
             const lazyVideos = document.querySelectorAll('video[preload="none"]');
