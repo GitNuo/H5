@@ -189,6 +189,15 @@ nav ul li a:hover, nav ul li a:active {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
+nav ul li a.active {
+    color: #6a11cb;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+nav ul li a.active::before {
+    width: 50%;
+}
+
 section {
     background-color: rgba(255, 255, 255, 0.7);
     padding: 35px;
@@ -618,5 +627,235 @@ footer::after {
     
     .video-grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 移动设备导航优化 */
+@media (max-width: 767px) {
+    .container {
+        padding: 15px;
+    }
+    
+    header {
+        padding: 30px 0;
+        margin-bottom: 20px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    nav {
+        margin-bottom: 20px;
+        position: relative;
+        top: 0;
+        border-radius: 30px;
+    }
+    
+    nav::after {
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 3px;
+        background: rgba(106, 17, 203, 0.2);
+        border-radius: 3px;
+        opacity: 0.7;
+    }
+    
+    nav ul {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        padding: 5px;
+    }
+    
+    nav ul::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Edge */
+    }
+    
+    nav ul li {
+        flex: 0 0 auto;
+        min-width: 110px;
+        margin: 0 2px;
+    }
+    
+    nav ul li a {
+        padding: 12px 15px;
+        border-radius: 25px;
+        white-space: nowrap;
+        font-size: 0.95rem;
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    nav ul li a::before {
+        display: none;
+    }
+    
+    nav ul li a:hover, nav ul li a:active {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+    
+    nav ul li a.active {
+        background: var(--gradient-blue);
+        color: white;
+        box-shadow: 0 4px 15px rgba(106, 17, 203, 0.2);
+    }
+    
+    section {
+        padding: 25px;
+        margin-bottom: 25px;
+    }
+    
+    .business-category {
+        padding: 20px;
+    }
+    
+    .advantage-item {
+        padding: 25px;
+        padding-top: 35px;
+    }
+    
+    .advantage-item h3 {
+        margin: -40px 0 15px 0;
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+    
+    .comparison-item {
+        padding: 20px;
+    }
+    
+    .comparison-item h4 {
+        font-size: 1.1rem;
+    }
+    
+    .video-grid {
+        gap: 20px;
+        margin: 20px 0;
+    }
+    
+    .video-item {
+        padding: 20px;
+    }
+    
+    .video-item h3 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+    
+    .video-container {
+        margin-bottom: 10px;
+        border-radius: 12px;
+    }
+    
+    /* 在移动端优化视频播放控件 */
+    video::-webkit-media-controls-panel {
+        background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+    }
+    
+    video::-webkit-media-controls-play-button {
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    
+    /* 优化移动端页面滚动体验 */
+    html, body {
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* 移动端添加顶部小间距，防止刘海屏遮挡内容 */
+    body {
+        padding-top: env(safe-area-inset-top, 0);
+        padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+    
+    /* 优化移动端点击区域 */
+    .contact-button, button, .back-link, nav ul li a {
+        touch-action: manipulation;
+    }
+    
+    .more-cases {
+        margin: 25px 0 15px;
+    }
+    
+    .contact-button {
+        padding: 14px 25px;
+        font-size: 0.95rem;
+    }
+    
+    footer {
+        padding: 30px 15px;
+        margin-top: 25px;
+    }
+    
+    /* 联系页面移动优化 */
+    .form-container {
+        padding: 25px;
+        margin: 20px 0;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    input, textarea, select {
+        padding: 12px;
+        font-size: 15px;
+    }
+    
+    textarea {
+        height: 120px;
+    }
+    
+    button {
+        padding: 14px 25px;
+    }
+    
+    .back-link {
+        margin-top: 20px;
+        padding: 8px 15px;
+    }
+}
+
+/* 进一步优化超小屏幕设备 */
+@media (max-width: 380px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.4rem;
+    }
+    
+    nav ul li {
+        min-width: 100px;
+    }
+    
+    nav ul li a {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .advantage-intro {
+        font-size: 1.1rem;
+        padding: 20px 15px;
+    }
+    
+    .video-item h3 {
+        font-size: 1.1rem;
     }
 } 

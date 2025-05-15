@@ -14,7 +14,7 @@
 
         <nav>
             <ul>
-                <li><a href="#business">业务方向</a></li>
+                <li><a href="#business" class="active">业务方向</a></li>
                 <li><a href="#advantages">我们的优势</a></li>
                 <li><a href="#cases">优秀案例展示</a></li>
                 <li><a href="contact.html">联系我们</a></li>
@@ -111,7 +111,7 @@
                 <div class="video-item">
                     <h3>案例一</h3>
                     <div class="video-container">
-                        <video controls width="100%">
+                        <video controls width="100%" preload="none" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='16' height='9' fill='%23eaeaea'/%3E%3Cpath d='M8 6.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z' fill='%23999'/%3E%3C/svg%3E">
                             <source src="http://124.71.181.194/video/1.mp4" type="video/mp4">
                             您的浏览器不支持视频播放，请更新浏览器或使用其他浏览器查看。
                         </video>
@@ -121,7 +121,7 @@
                 <div class="video-item">
                     <h3>案例二</h3>
                     <div class="video-container">
-                        <video controls width="100%">
+                        <video controls width="100%" preload="none" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='16' height='9' fill='%23eaeaea'/%3E%3Cpath d='M8 6.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z' fill='%23999'/%3E%3C/svg%3E">
                             <source src="http://124.71.181.194/video/2.mp4" type="video/mp4">
                             您的浏览器不支持视频播放，请更新浏览器或使用其他浏览器查看。
                         </video>
@@ -131,7 +131,7 @@
                 <div class="video-item">
                     <h3>案例三</h3>
                     <div class="video-container">
-                        <video controls width="100%">
+                        <video controls width="100%" preload="none" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='16' height='9' fill='%23eaeaea'/%3E%3Cpath d='M8 6.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z' fill='%23999'/%3E%3C/svg%3E">
                             <source src="http://124.71.181.194/video/3.mp4" type="video/mp4">
                             您的浏览器不支持视频播放，请更新浏览器或使用其他浏览器查看。
                         </video>
@@ -141,7 +141,7 @@
                 <div class="video-item">
                     <h3>案例四</h3>
                     <div class="video-container">
-                        <video controls width="100%">
+                        <video controls width="100%" preload="none" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='16' height='9' fill='%23eaeaea'/%3E%3Cpath d='M8 6.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z' fill='%23999'/%3E%3C/svg%3E">
                             <source src="http://124.71.181.194/video/4.mp4" type="video/mp4">
                             您的浏览器不支持视频播放，请更新浏览器或使用其他浏览器查看。
                         </video>
@@ -151,7 +151,7 @@
                 <div class="video-item">
                     <h3>案例五</h3>
                     <div class="video-container">
-                        <video controls width="100%">
+                        <video controls width="100%" preload="none" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='16' height='9' fill='%23eaeaea'/%3E%3Cpath d='M8 6.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z' fill='%23999'/%3E%3C/svg%3E">
                             <source src="http://124.71.181.194/video/5.mp4" type="video/mp4">
                             您的浏览器不支持视频播放，请更新浏览器或使用其他浏览器查看。
                         </video>
@@ -179,6 +179,102 @@
         document.getElementById('showContactButton').addEventListener('click', function(e) {
             e.preventDefault();
             window.location.href = 'contact.html';
+        });
+        
+        // 导航菜单激活状态管理
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            function setActiveLink() {
+                let scrollPosition = window.scrollY;
+                
+                // 添加一点偏移量，让切换更自然
+                scrollPosition += 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + sectionId) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+            
+            // 页面加载和滚动时检查
+            window.addEventListener('scroll', setActiveLink);
+            setActiveLink();
+            
+            // 平滑滚动到锚点
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.getAttribute('href').startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        const targetSection = document.querySelector(targetId);
+                        
+                        if (targetSection) {
+                            window.scrollTo({
+                                top: targetSection.offsetTop - 20,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+
+        // 视频延迟加载
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyVideos = document.querySelectorAll('video[preload="none"]');
+            
+            if ('IntersectionObserver' in window) {
+                const videoObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const video = entry.target;
+                            // 移动设备上不自动加载视频，只有点击播放时才加载
+                            if (window.innerWidth > 767) {
+                                video.preload = 'metadata';
+                            }
+                            // 设置缩略图
+                            const thumbnailUrl = video.getAttribute('data-thumbnail');
+                            if (thumbnailUrl) {
+                                video.poster = thumbnailUrl;
+                            }
+                            
+                            videoObserver.unobserve(video);
+                        }
+                    });
+                }, {
+                    rootMargin: '0px 0px 200px 0px'
+                });
+                
+                lazyVideos.forEach(video => {
+                    videoObserver.observe(video);
+                    
+                    // 在点击时确保视频已加载
+                    video.addEventListener('play', function() {
+                        if (this.preload === 'none') {
+                            this.preload = 'auto';
+                        }
+                    });
+                });
+            } else {
+                // 回退方案，适用于不支持IntersectionObserver的浏览器
+                lazyVideos.forEach(video => {
+                    if (window.innerWidth > 767) {
+                        video.preload = 'metadata';
+                    }
+                });
+            }
         });
     </script>
 </body>
