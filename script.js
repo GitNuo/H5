@@ -14,6 +14,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // 确保视频缩略图加载
+    const videos = document.querySelectorAll('video');
+    videos.forEach((video, index) => {
+        // 确保视频有正确的poster属性
+        if (!video.hasAttribute('poster') || video.getAttribute('poster') === '') {
+            video.setAttribute('poster', `./video-thumbnail-${index + 1}.jpg`);
+        }
+    });
+
     // 添加视频函数
     window.addVideo = function(videoUrl, videoType) {
         const videoContainer = document.querySelector('.video-container');
